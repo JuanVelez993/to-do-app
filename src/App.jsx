@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import './App.css'
+import StoreProvider from './components/StoreProvider'
+import ListOfToDo from './components/ListOfToDo'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <h1>Hello form my app</h1>
+      <StoreProvider>
+        <h1>Hello form my app</h1>
+        <ListOfToDo/>
+      </StoreProvider>
+      
     </div>
   )
 }
