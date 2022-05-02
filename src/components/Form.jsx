@@ -1,7 +1,9 @@
-import React,{useContext,useState} from 'react'
+import React,{useContext,useState,useRef} from 'react'
 import {Store} from './StoreProvider'
 
 const Form = () => {
+
+    const formRef=useRef(null)
 
     const onAdd = (e) => {
         e.preventDefault();
@@ -9,6 +11,7 @@ const Form = () => {
             dispatch({type:'add-note',
         payload: { title, message}})
         }
+        formRef.current.reset();
     }
 
     const {state, dispatch} = useContext(Store)
@@ -25,7 +28,7 @@ const Form = () => {
 
     }
   return (
-    <form>
+    <form ref={formRef}>
         <label>Title</label>
         <input onChange={addingTitle} type="text" name="title"/>
         <label>Message</label>
