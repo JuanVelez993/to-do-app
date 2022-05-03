@@ -1,8 +1,25 @@
-import React, {useContext} from 'react'
+import React, {useContext,useEffect} from 'react'
 import {Store} from './StoreProvider'
 
 const ListOfToDo = () => {
     const {state, dispatch} = useContext(Store)
+
+    useEffect(() => {
+        let listOfNote=fetchAllNotes().then(notes => {
+            let action = {
+                type: 'get-notes', payload:notes
+            }
+            dispatch(action)
+        })
+    },[])
+
+    const fetchAllNotes =async() =>{
+        let response = await fetch(`http://localhost:8081/api/get/notes`)
+        let data= await response.json()
+        return data
+    }
+        
+     
 
     const onCheckBox = (e, note)=>{
         const checked=e.currentTarget.checked;

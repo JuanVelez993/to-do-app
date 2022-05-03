@@ -1,11 +1,10 @@
 function reducer(state, action) {
     switch (action.type){
+        case 'get-notes':
+            const stateWitNotes={...state,listOfNotes:action.payload}
+            return stateWitNotes
         case 'add-note':
-            const newNote = { 
-                id: Math.floor(Math.random() * 100),
-                title:action.payload.title ,
-                message:action.payload.message ,
-                done:false }
+            const newNote = action.payload;
                 const newListofNotesAddedOne =[...state.listOfNotes,newNote]
                 const newStateAddNote = {...state,listOfNotes:newListofNotesAddedOne}
             return newStateAddNote
