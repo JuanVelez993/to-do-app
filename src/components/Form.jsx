@@ -15,7 +15,7 @@ const Form = () => {
             } ,
             body: JSON.stringify(noteFromForm),
        })
-          let noteSaved=await noteSavedPromise.json();
+        let noteSaved=await noteSavedPromise.json();
         dispatch({type:'add-note',
         payload:noteSaved})
         }
