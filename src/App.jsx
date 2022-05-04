@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <StoreProvider>
-        <h1>Hello form my app</h1>
+        <h1>To-do app</h1>
         <Form/>
         <ListOfToDo/>
       </StoreProvider>

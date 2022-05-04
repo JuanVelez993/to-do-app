@@ -51,13 +51,13 @@ const ListOfToDo = () => {
     }
   return (
       <div>
-          <h1>List Of To Do</h1>
+          <h1>List of Notes</h1>
           <ul>
               {state.listOfNotes.map(note =>{
                   return <li style={note.done ? {textDecoration : 'line-through'}:{}} key={note.id}>
                       {note.title} {note.message}
                       <input onChange={(e)=>onCheckBox(e,note)} type="checkbox" checked={note.done}/>
-                      <button onClick={(e) => onDelete(note)}>X</button>
+                      <button className="delete-btn" onClick={(e) => onDelete(note)}>X</button>
                   </li>
               })}
           </ul>
